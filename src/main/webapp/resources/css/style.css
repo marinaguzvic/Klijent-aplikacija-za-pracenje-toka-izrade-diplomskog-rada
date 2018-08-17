@@ -1,0 +1,62 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Aug 14, 2018, 11:15:08 AM
+    Author     : Marina Guzvic
+*/
+
+body, html {
+    height: 100%;
+}
+.bg {
+    /* The image used */
+    background-image: url("/KlijentAplikacijaZaPracenjeTokaIzradeDiplomskogRada/resources/images/background.jpg");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.content{
+    background-color:  #e6ffe6;
+    height: 100%;
+}
+
+.naslov{
+    font-weight: bold;
+    color: #0000b3;
+}
+
+.input-lbl{
+    width: 15%;
+}
+.input{
+    width: 100%;
+}
+
+.space{
+    margin-top: 10px;
+    background-color:#99ffcc;
+
+}
+
+
+
+.custom-color {
+    background-color: #b3ffb3;
+    background-image: none;
+    background-repeat: no-repeat;
+}
+
+
+.custom-active{
+    background-color:#99ffcc ;
+    font-weight: bold;
+}
