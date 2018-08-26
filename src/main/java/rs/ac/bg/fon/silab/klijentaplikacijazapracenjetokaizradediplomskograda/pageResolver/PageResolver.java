@@ -23,7 +23,18 @@ public class PageResolver {
         view.put(IConstants.LANDING_PAGE, IConstants.LANDING_PAGE_PATH);
         view.put(IConstants.LOGIN_PAGE, IConstants.LOGIN_PAGE_PATH);
         view.put(IConstants.DIPLOMSKI_RAD_PAGE, IConstants.DIPLOMSKI_RAD_PAGE_PATH);
-        
+        view.put(IConstants.DIPLOMSKI_RAD_NASTAVNIK_PAGE, IConstants.DIPLOMSKI_RAD_NASTAVNIK_PATH);
+        view.put(IConstants.STUDENT_UPDATE_PAGE, IConstants.STUDENT_UPDATE_PATH);
+        view.put(IConstants.STUDENT_NEW_PAGE, IConstants.STUDENT_NEW_PATH);
+        view.put(IConstants.VIEW_STUDENTS_PAGE, IConstants.VIEW_STUDENTS_PAGE_PATH);
+        view.put(IConstants.TEMA_NEW_PAGE, IConstants.TEMA_NEW_PAGE_PATH);
+        view.put(IConstants.TEMA_VIEW_PAGE, IConstants.TEMA_VIEW_PAGE_PATH);
+        view.put(IConstants.TEMA_SEARCH_PAGE, IConstants.TEMA_SEARCH_PAGE_PATH);
+        view.put(IConstants.ODREDI_KOMISIJU_PAGE, IConstants.ODREDI_KOMISIJU_PAGE_PATH);
+        view.put(IConstants.PRIJAVI_DIPLOMSKI_PAGE, IConstants.PRIJAVI_DIPLOMSKI_PAGE_PATH);
+        view.put(IConstants.ODREDI_DATUM_ODBRANE_PAGE, IConstants.ODREDI_DATUM_ODBRANE_PAGE_PATH);
+        view.put(IConstants.ODREDI_OCENU_PAGE,IConstants.ODREDI_KOMISIJU_PAGE_PATH);
+        view.put(IConstants.DIPLOMSKI_RAD_CONFIRMATION_PAGE,IConstants.DIPLOMSKI_RAD_CONFIRMATION_PAGE_PATH);
     }
 
     public static PageResolver getInstance() {

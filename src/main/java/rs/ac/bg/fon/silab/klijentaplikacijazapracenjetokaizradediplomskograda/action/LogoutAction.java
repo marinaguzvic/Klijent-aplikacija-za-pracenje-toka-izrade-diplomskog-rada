@@ -6,6 +6,7 @@
 package rs.ac.bg.fon.silab.klijentaplikacijazapracenjetokaizradediplomskograda.action;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import rs.ac.bg.fon.silab.klijentaplikacijazapracenjetokaizradediplomskograda.util.IConstants;
 
 /**
@@ -15,8 +16,9 @@ import rs.ac.bg.fon.silab.klijentaplikacijazapracenjetokaizradediplomskograda.ut
 public class LogoutAction extends AbstractAction{
 
     @Override
-    public boolean callToService(HttpServletRequest request) {
+    public boolean callToService(HttpServletRequest request,HttpServletResponse response) {
         request.getSession().removeAttribute(IConstants.NALOG);
+        request.getSession().removeAttribute(IConstants.DIPLOMSKI_RAD_PAGE);
         return true;
     }
 

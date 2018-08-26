@@ -11,22 +11,22 @@ and open the template in the editor.
 body, html {
     height: 100%;
 }
+
+
 .bg {
-    /* The image used */
-    background-image: url("/KlijentAplikacijaZaPracenjeTokaIzradeDiplomskogRada/resources/images/background.jpg");
+        background-image: url("/app/resources/images/background.jpg");
+        height: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
 
-    /* Full height */
-    height: 100%;
-
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
 .content{
     background-color:  #e6ffe6;
     height: 100%;
+    overflow-y: scroll;
 }
 
 .naslov{
@@ -60,3 +60,4 @@ body, html {
     background-color:#99ffcc ;
     font-weight: bold;
 }
+

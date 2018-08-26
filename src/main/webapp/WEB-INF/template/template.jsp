@@ -12,7 +12,7 @@
     <div class="media">
         <div class="media-left">
             <a href="#">
-                <img class="media-object" src="/KlijentAplikacijaZaPracenjeTokaIzradeDiplomskogRada/resources/images/logo.png" alt="FON Logo"/>
+                <img class="media-object" src="/app/resources/images/logo.png" alt="FON Logo"/>
             </a>
         </div>
         <div class="media-body">
@@ -28,20 +28,20 @@
                 </c:when>
                 <c:otherwise>
             <li class="${requestScope.page.equalsIgnoreCase("Moj nalog") ? "custom-active":"non-active"}"><a href="/app/controller?action=landingpage">Moj nalog</a></li>
-            <c:choose>    
-            <c:when test="${sessionScope.nalog.getTipClana() == 'S'}">
-                    <jsp:include page="templatemenustudent.jsp"></jsp:include>
-                </c:when>
-                <c:when test="<${sessionScope.nalog.getTipClana() == 'N'}">
-                    <jsp:include page="templatemenunastavnik.jsp"></jsp:include>
-                </c:when>
-                <c:when test="${sessionScope.nalog.getTipClana() == 'R'}">
-                    <jsp:include page="templatemenuradnik.jsp"></jsp:include>
-                </c:when>
-            </c:choose>
-                </ul><ul class="nav navbar-nav navbar-right" style="padding-right: 20px;">
+                <c:choose>    
+                    <c:when test="${sessionScope.nalog.getTipClana() == 'S'}">
+                        <jsp:include page="templatemenustudent.jsp"></jsp:include>
+                    </c:when>
+                    <c:when test="${sessionScope.nalog.getTipClana() == 'N'}">
+                        <jsp:include page="templatemenunastavnik.jsp"></jsp:include>
+                    </c:when>
+                    <c:when test="${sessionScope.nalog.getTipClana() == 'R'}">
+                        <jsp:include page="templatemenuradnik.jsp"></jsp:include>
+                    </c:when>
+                </c:choose>
+        </ul><ul class="nav navbar-nav navbar-right" style="padding-right: 20px;">
             <li><a href="/app/controller?action=logout">Odjavite se</a></li></ul>
-                </c:otherwise>  
+            </c:otherwise>  
 
 </c:choose>
 

@@ -6,6 +6,7 @@
 package rs.ac.bg.fon.silab.klijentaplikacijazapracenjetokaizradediplomskograda.action;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import rs.ac.bg.fon.silab.klijentaplikacijazapracenjetokaizradediplomskograda.util.IConstants;
 
 /**
@@ -15,7 +16,7 @@ import rs.ac.bg.fon.silab.klijentaplikacijazapracenjetokaizradediplomskograda.ut
 public class LandingPageAction extends AbstractAction{
 
     @Override
-    public boolean callToService(HttpServletRequest request) {
+    public boolean callToService(HttpServletRequest request,HttpServletResponse response) {
         return true;
     }
 

@@ -8,6 +8,7 @@ package rs.ac.bg.fon.silab.klijentaplikacijazapracenjetokaizradediplomskograda.c
 
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import rs.ac.bg.fon.silab.klijentaplikacijazapracenjetokaizradediplomskograda.action.AbstractAction;
 import rs.ac.bg.fon.silab.klijentaplikacijazapracenjetokaizradediplomskograda.action.ActionFactory;
 import rs.ac.bg.fon.silab.klijentaplikacijazapracenjetokaizradediplomskograda.util.IConstants;
@@ -30,12 +31,12 @@ public class ApplicationController {
         return instance;
     }
     
-    public String processRequest(String action, HttpServletRequest request) {
+    public String processRequest(String action, HttpServletRequest request,HttpServletResponse response) {
         String page = request.getSession().getAttribute(IConstants.NALOG) != null ? IConstants.LANDING_PAGE_PATH:IConstants.LOGIN_PAGE_PATH;
         
         AbstractAction command = ActionFactory.createAction(action);
         if(command != null)
-            page = command.execute(request);
+            page = command.execute(request,response);
         
         return page;
     }

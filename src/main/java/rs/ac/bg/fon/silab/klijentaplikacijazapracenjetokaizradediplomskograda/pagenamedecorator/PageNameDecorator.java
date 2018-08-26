@@ -22,7 +22,17 @@ public class PageNameDecorator {
         view.put(IConstants.LANDING_PAGE, IConstants.LANDING_PAGE_NAME);
         view.put(IConstants.LOGIN_PAGE, IConstants.LOGIN_PAGE_NAME);
         view.put(IConstants.DIPLOMSKI_RAD_PAGE, IConstants.DIPLOMSKI_RAD_PAGE_NAME);
-        
+        view.put(IConstants.DIPLOMSKI_RAD_NASTAVNIK_PAGE,  IConstants.DIPLOMSKI_RAD_NASTAVNIK_PAGE_NAME);
+        view.put(IConstants.STUDENT_NEW_PAGE, IConstants.STUDENT_NEW_PAGE_NAME);
+        view.put(IConstants.VIEW_STUDENTS_PAGE, IConstants.VIEW_STUDENTS_PAGE_NAME);
+        view.put(IConstants.STUDENT_UPDATE_PAGE, IConstants.STUDENT_UPDATE_PAGE_NAME);
+        view.put(IConstants.TEMA_NEW_PAGE, IConstants.TEMA_NEW_PAGE_NAME);
+        view.put(IConstants.TEMA_VIEW_PAGE, IConstants.TEMA_VIEW_PAGE_NAME);
+        view.put(IConstants.TEMA_SEARCH_PAGE, IConstants.TEMA_SEARCH_PAGE_NAME);
+        view.put(IConstants.ODREDI_KOMISIJU_PAGE, IConstants.ODREDI_KOMISIJU_PAGE_NAME);
+        view.put(IConstants.PRIJAVI_DIPLOMSKI_PAGE, IConstants.PRIJAVI_DIPLOMSKI_PAGE_NAME);
+        view.put(IConstants.ODREDI_DATUM_ODBRANE_PAGE, IConstants.ODREDI_DATUM_ODBRANE_PAGE_NAME);
+        view.put(IConstants.ODREDI_OCENU_PAGE,IConstants.ODREDI_KOMISIJU_PAGE_NAME);
     }
 
     public static PageNameDecorator getInstance() {

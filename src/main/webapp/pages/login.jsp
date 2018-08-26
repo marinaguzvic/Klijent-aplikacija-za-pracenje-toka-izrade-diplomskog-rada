@@ -5,13 +5,14 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        
+
         <link href="/app/resources/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
         <link href="/app/resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="/app/resources/css/style.css" rel="stylesheet" type="text/css"/>
@@ -21,9 +22,14 @@
             <div class="container content">
                 <jsp:include page="/WEB-INF/template/template.jsp"></jsp:include>
                     <form action="/app/controller" method="POST">
-                        <div id="errorMessage">
-                        ${errorMessage}
-                    </div>
+                        <c:if test="${requestScope.errorMessage != null}">
+                        <div class="alert alert-danger alert-dismissable fade show" role="alert">
+                            <strong>Greška!</strong> ${requestScope.errorMessage}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </c:if>
                     <div class="input-group input" >
                         <span class="input-group-addon input-lbl custom-active" id="basic-addon1">Korisničko ime</span>
                         <input type="text" name="korisnickoIme" class="form-control" aria-describedby="basic-addon1"/>

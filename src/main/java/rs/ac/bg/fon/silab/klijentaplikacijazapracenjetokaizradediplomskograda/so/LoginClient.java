@@ -9,6 +9,7 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.Response;
 import rs.ac.bg.fon.silab.diplomskiraddtos.ClanSistemaDTO;
 import rs.ac.bg.fon.silab.diplomskiraddtos.NalogDTO;
@@ -61,6 +62,11 @@ public class LoginClient extends RestClient{
 
     @Override
     public Class getType() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public GenericType getCollectionType() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

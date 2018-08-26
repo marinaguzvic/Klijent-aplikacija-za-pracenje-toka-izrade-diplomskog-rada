@@ -8,6 +8,7 @@ package rs.ac.bg.fon.silab.klijentaplikacijazapracenjetokaizradediplomskograda.a
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import rs.ac.bg.fon.silab.diplomskiraddtos.ClanSistemaDTO;
 import rs.ac.bg.fon.silab.diplomskiraddtos.NalogDTO;
@@ -31,7 +32,7 @@ public class LoginAction extends AbstractAction {
     
     
     @Override
-    public boolean callToService(HttpServletRequest request) {
+    public boolean callToService(HttpServletRequest request,HttpServletResponse response) {
          try {
             client = new LoginClient();
             ClanSistemaDTO clan = ((LoginClient)client).login(new NalogDTO(request.getParameter("korisnickoIme"), request.getParameter("sifra")));
@@ -39,7 +40,7 @@ public class LoginAction extends AbstractAction {
             return true;
         } catch (Exception ex) {
             ex.printStackTrace();
-            request.setAttribute("errorMessage", "Login neuspešan, neispravno korisničko ime ili šifra");            
+            request.setAttribute(IConstants.ERROR_MESSAGE, "Sistem ne može da prijavi korisnika");            
             return false;
         }
     }

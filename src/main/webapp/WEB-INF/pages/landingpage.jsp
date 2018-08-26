@@ -23,22 +23,38 @@
         <div class="bg">
             <div class="container content">
                 <jsp:include page="/WEB-INF/template/template.jsp"></jsp:include>
+                <c:if test="${requestScope.errorMessage != null}">
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+                        <strong>Greška!</strong> ${requestScope.errorMessage}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </c:if>
+                <c:if test="${requestScope.successMessage != null}">
+                   <div class="alert alert-success alert-dismissible" role="alert" >
+                        <strong>Uspešno!</strong> ${requestScope.successMessage}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </c:if>
                 <table class="table table-striped">
-                   
+
                     <tbody>
-                    <c:forEach var="property" items="${sessionScope.nalog.getProperties()}">
-                        <tr>
-                            <td>${property}</td>
-                            <td>${sessionScope.nalog.getPropertyByName(property)}</td>
-                        </tr>
-                    </c:forEach>
-                      
+                        <c:forEach var="property" items="${sessionScope.nalog.getProperties()}">
+                            <tr>
+                                <td>${property}</td>
+                                <td>${sessionScope.nalog.getPropertyByName(property)}</td>
+                            </tr>
+                        </c:forEach>
+
                     </tbody>
                 </table>
             </div>
         </div>
+        <script src="/app/resources/js/jquery.js" type="text/javascript"></script>
         <script src="/app/resources/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="../../resources/js/npm.js" type="text/javascript"></script>
 
     </body>
 </html>

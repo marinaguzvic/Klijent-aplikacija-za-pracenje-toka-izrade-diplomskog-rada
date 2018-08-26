@@ -8,6 +8,7 @@ package rs.ac.bg.fon.silab.klijentaplikacijazapracenjetokaizradediplomskograda.s
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,6 +19,7 @@ import rs.ac.bg.fon.silab.klijentaplikacijazapracenjetokaizradediplomskograda.pa
  *
  * @author FON
  */
+@MultipartConfig
 public class FrontController extends HttpServlet {
 
     /**
@@ -31,12 +33,13 @@ public class FrontController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         String action = request.getParameter("action");
         
         //view = logicko ime strane koja treba da se vrati
         String view = ApplicationController.getInstance()
-                                    .processRequest(action, request);
+                                    .processRequest(action, request,response);
         String page = PageResolver.getInstance().getPage(view);
         request.getRequestDispatcher(page).forward(request, response);
     }
