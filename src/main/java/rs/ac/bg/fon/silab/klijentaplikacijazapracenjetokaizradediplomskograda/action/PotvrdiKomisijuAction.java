@@ -34,6 +34,7 @@ public class PotvrdiKomisijuAction extends AbstractAction{
                 clan.setNastavnik(nastavnik);
                 if(nastavnik.getClanSistemaId() == Long.parseLong(mentor))clan.setUlogaClanaKomisije("MENTOR");
                 else clan.setUlogaClanaKomisije("CLAN");
+                diplomskiRadUnesiKomisijuDTO.getClans().add(clan);
             }
             client = new DiplomskiRadClient();
             DiplomskiRadDTO d = ((DiplomskiRadClient)client).odrediKomisiju(diplomskiRadUnesiKomisijuDTO, (String) request.getSession().getAttribute(IConstants.DIPLOMSKI_ID));
@@ -49,7 +50,7 @@ public class PotvrdiKomisijuAction extends AbstractAction{
 
     @Override
     public String getPage(boolean stat) {
-        if(stat)return IConstants.PRIJAVI_DIPLOMSKI_PAGE;
+        if(stat)return IConstants.DIPLOMSKI_RAD_CONFIRMATION_PAGE;
         else return IConstants.VIEW_STUDENTS_PAGE;
     }
 }

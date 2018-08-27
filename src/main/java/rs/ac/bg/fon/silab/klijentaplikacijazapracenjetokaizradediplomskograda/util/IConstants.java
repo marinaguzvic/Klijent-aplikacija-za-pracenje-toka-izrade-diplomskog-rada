@@ -91,7 +91,7 @@ public interface IConstants {
     public static final String ODREDI_DATUM_ODBRANE_PAGE_PATH = "/WEB-INF/pages/diplomskidatumodbrane.jsp";
 
     public static final String ODREDI_OCENU_PAGE = "odrediocenu";
-    public static final String ODREDI_OCENU_ACTION = "odrediocenu";
+    public static final String ODREDI_OCENU_ACTION = "odbranidiplomski";
     public static final String ODREDI_OCENU_NAME = "Diplomski rad - odredi ocenu";
     public static final String ODREDI_OCENU_PATH = "/WEB-INF/pages/diplomskiocena.jsp";
     public static final String POTVRDI_PRIJAVU_DIPLOMSKOG_ACTION = "potvrdiprijavudiplomskog";
@@ -102,4 +102,10 @@ public interface IConstants {
     public static final String PREDAJ_DIPLOMSKI_RAD_ACTION = "predajdiplomski";
     public static final String POTVRDI_DATUM_ODBRANE_ACTION = "potvrdidatumodbrane";
     public static final String POTVRDI_ODBRANU_ACTION = "potvrdiocenu";
+    public static final String PROMENI_CLANA_PAGE = "promeniclana";
+    public static final String PROMENI_CLANA_ACTION = "promeniclana";
+    public static final String PROMENI_CLANA_PAGE_PATH = "/WEB-INF/pages/diplomskipromenakomisije.jsp";
+    public static final String PROMENI_CLANA_PAGE_NAME = "Promena člana komisije";
+    
+    public static final String POTVRDI_PROMENU_CLANA_ACTION = "potvrdipromenuclana";
 }

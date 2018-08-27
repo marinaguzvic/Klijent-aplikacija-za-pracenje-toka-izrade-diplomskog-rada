@@ -51,26 +51,26 @@
                             <label>Nastavnik</label>
                             <select class="selectpicker form-control" name="nastavnik" data-show-subtext="true" data-live-search="true" >
                                 <c:forEach var="nastavnik" items="${sessionScope.nastavniks}">
-                                    <option data-subtext="${nastavnik.katedra}" value="${nastavnik.clanSistemaId}" disabled="${sessionScope.clans.contains(nastavnik)}">${nastavnik.ime + ' ' + nastavnik.prezime}</option>
+                                    <option data-subtext="${nastavnik.katedra}" value="${nastavnik.clanSistemaId}" ${sessionScope.clans.contains(nastavnik)?'disabled':''}>${nastavnik.ime.concat(' ').concat(nastavnik.prezime)}</option>
                                 </c:forEach>
                             </select>
                         </div>
                     </c:if>
-                    <button type="submit" name="action" value="dodajclana">Dodaj člana</button>
-                    <table>
+                    <button type="submit" name="action" value="dodajclana" class="btn btn-lg btn-block space">Dodaj člana</button>
+                    <table class="table table-striped">
                         <c:forEach var = "clan" items="${sessionScope.clans}">
                             <tr>
-                                <td>${clan.ime + ' ' + clan.prezime}</td>
+                                <td>${clan.ime.concat(' ').concat( clan.prezime)}</td>
                             </tr>
                         </c:forEach>
                     </table>
-                    <button type="submit" name="action" value="potvrdiclanove" disabled="${sessionScope.clans.size() != 3 && sessionScope.clans.size() != 5}" hidden="${sessionScope.odredjen}">Potvrdi članove</button>
+                    <button type="submit" name="action" value="potvrdiclanove" class="btn btn-lg btn-block space" ${(sessionScope.clans.size() != 3 && sessionScope.clans.size() != 5)?'disabled':''} ${sessionScope.odredjen?'hidden':''}>Potvrdi članove</button>
                     <c:if test="${sessionScope.odredjen}">
                         <div class="row-fluid">
                             <label>Nastavnik</label>
                             <select class="selectpicker form-control" name="mentor" data-show-subtext="true" data-live-search="true" >
                                 <c:forEach var="clan" items="${sessionScope.clans}">
-                                    <option value="${clan.clanSistemaId}">${clan.ime + ' ' + clan.prezime}</option>
+                                    <option value="${clan.clanSistemaId}">${clan.ime.concat(' ').concat(clan.prezime)}</option>
                                 </c:forEach>
                             </select>
                         </div>

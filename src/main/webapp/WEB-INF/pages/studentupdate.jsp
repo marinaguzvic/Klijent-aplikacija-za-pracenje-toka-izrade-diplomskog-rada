@@ -152,9 +152,11 @@
                                                     </c:when>
                                                     <c:when test="${requestScope.diplomskiRad.status == 'ODREDJENA_KOMISIJA'}">
                                                         <button name="action" value="predajdiplomski" class="btn btn-lg btn-block space">Predaj diplomski rad</button>
+                                                        <button name="action" value="promeniclana" class="btn btn-lg btn-block space">Promeni člana komisije</button>
                                                     </c:when>
                                                     <c:when test="${requestScope.diplomskiRad.status == 'PREDAT' && requestScope.diplomskiRad.datumOdbrane == null}">
                                                         <button name="action" value="odredidatumodbrane" class="btn btn-lg btn-block space">Odredi datum odbrane</button>
+                                                        <button name="action" value="promeniclana" class="btn btn-lg btn-block space">Promeni člana komisije</button>
                                                     </c:when>
                                                     <c:when test="${requestScope.diplomskiRad.status == 'PREDAT' && requestScope.diplomskiRad.datumOdbrane != null}">
                                                         <button name="action" value="odbranidiplomski" class="btn btn-lg btn-block space">Evidentiraj odbranu</button>

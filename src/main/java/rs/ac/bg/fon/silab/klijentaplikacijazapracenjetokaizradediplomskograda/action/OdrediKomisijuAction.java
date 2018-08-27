@@ -30,12 +30,8 @@ public class OdrediKomisijuAction extends AbstractAction {
     public boolean callToService(HttpServletRequest request, HttpServletResponse response) {
             try {
                 client = new NastavnikClient();
-                List<AbstractDTO> dtos = client.getAll();
-                List<NastavnikDTO> nastavniks = new ArrayList<>();
-                for (AbstractDTO dto : dtos) {
-                    nastavniks.add((NastavnikDTO) dto);
-                }
-                request.setAttribute("nastavniks", nastavniks);
+                List<NastavnikDTO> nastavniks = ((NastavnikClient)client).getNastavniksForKomisija();
+                request.getSession().setAttribute("nastavniks", nastavniks);
                 client = new DiplomskiRadClient();
                 DiplomskiRadDTO diplomski = getDiplomski(request);
                 request.getSession().setAttribute(IConstants.DIPLOMSKI_ID, request.getParameter(IConstants.DIPLOMSKI_ID));
@@ -60,6 +56,6 @@ public class OdrediKomisijuAction extends AbstractAction {
     }
 
     public DiplomskiRadDTO getDiplomski(HttpServletRequest request) throws Exception {
-        return (DiplomskiRadDTO) client.get(request.getSession().getAttribute(IConstants.STUDENT_ID) + "");
+        return (DiplomskiRadDTO) client.get(request.getParameter(IConstants.STUDENT_ID) + "");
     }
 }

@@ -41,12 +41,16 @@ public class ActionFactory {
         if(action.equalsIgnoreCase(IConstants.POTVRDI_PRIJAVU_DIPLOMSKOG_ACTION))command = new PotvrdiPrijavuDiplomskog();
         if(action.equalsIgnoreCase(IConstants.ODOBRI_DIPLOMSKI_ACTION))command = new OdobriDiplomskiRadAction();
         if(action.equalsIgnoreCase(IConstants.ODREDI_KOMISIJU_ACTION))command = new OdrediKomisijuAction();
+        if(action.equalsIgnoreCase(IConstants.DODAJ_CLANA_ACTION))command = new DodajClanaAction();
+        if(action.equalsIgnoreCase(IConstants.POTVRDI_CLANOVE_ACTION))command = new OdrediClanoveAction();
         if(action.equalsIgnoreCase(IConstants.POTVRDI_KOMISIJU_ACTION))command = new PotvrdiKomisijuAction();
         if(action.equalsIgnoreCase(IConstants.PREDAJ_DIPLOMSKI_RAD_ACTION))command = new PredajDiplomskiRadAction();
         if(action.equalsIgnoreCase(IConstants.ODREDI_DATUM_ODBRANE_ACTION))command = new OdrediDatumOdbraneAction();
         if(action.equalsIgnoreCase(IConstants.POTVRDI_DATUM_ODBRANE_ACTION))command = new PotvrdiDatumOdbraneAction();
         if(action.equalsIgnoreCase(IConstants.ODREDI_OCENU_ACTION))command = new OdrediOcenuDiplomskogRadaAction();
         if(action.equalsIgnoreCase(IConstants.POTVRDI_ODBRANU_ACTION))command = new PotvrdiOdbranuAction();
+        if(action.equalsIgnoreCase(IConstants.PROMENI_CLANA_ACTION))command = new PromeniClanaAction();
+        if(action.equalsIgnoreCase(IConstants.POTVRDI_PROMENU_CLANA_ACTION))command = new PotvrdiPromenuClanaAction();
         return command;
     }
 }

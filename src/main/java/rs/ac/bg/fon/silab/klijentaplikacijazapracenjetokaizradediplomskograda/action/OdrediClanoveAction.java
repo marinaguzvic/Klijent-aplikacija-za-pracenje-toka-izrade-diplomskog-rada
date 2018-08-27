@@ -17,13 +17,13 @@ public class OdrediClanoveAction extends AbstractAction{
 
     @Override
     public boolean callToService(HttpServletRequest request, HttpServletResponse response) {
-        request.getSession().setAttribute("ordedjen", true);
+        request.getSession().setAttribute("odredjen", true);
         return true;
     }
 
     @Override
     public String getPage(boolean stat) {
-        return IConstants.DIPLOMSKI_RAD_NASTAVNIK_PAGE;
+        return IConstants.ODREDI_KOMISIJU_PAGE;
     }
     
 }

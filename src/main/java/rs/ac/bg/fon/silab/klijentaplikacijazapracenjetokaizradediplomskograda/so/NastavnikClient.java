@@ -7,6 +7,7 @@ package rs.ac.bg.fon.silab.klijentaplikacijazapracenjetokaizradediplomskograda.s
 
 import java.util.List;
 import javax.ws.rs.core.GenericType;
+import rs.ac.bg.fon.silab.diplomskiraddtos.AbstractDTO;
 import rs.ac.bg.fon.silab.diplomskiraddtos.NastavnikDTO;
 
 /**
@@ -30,4 +31,11 @@ public class NastavnikClient extends RestClient{
         return new GenericType<List<NastavnikDTO>>(){};
     }
     
+    public List<NastavnikDTO> getNastavniksForKomisija() throws Exception{
+        try {
+            return (List<NastavnikDTO>) webTarget.path(getDomain() + "/komisija").request().get().readEntity(getCollectionType());
+        } catch (Exception e) {
+            throw new Exception("Greška prilikom čitanja sa servera");
+        }
+    }
 }

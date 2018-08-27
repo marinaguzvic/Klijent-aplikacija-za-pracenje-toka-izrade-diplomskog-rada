@@ -13,6 +13,8 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.Response;
 import rs.ac.bg.fon.silab.diplomskiraddtos.AbstractDTO;
+import rs.ac.bg.fon.silab.diplomskiraddtos.ClanDTO;
+import rs.ac.bg.fon.silab.diplomskiraddtos.ClanKaKlijentuDTO;
 import rs.ac.bg.fon.silab.diplomskiraddtos.DiplomskiRadDTO;
 import rs.ac.bg.fon.silab.diplomskiraddtos.DiplomskiRadDatumOdbraneDTO;
 import rs.ac.bg.fon.silab.diplomskiraddtos.DiplomskiRadOdbraniDTO;
@@ -145,9 +147,20 @@ public class DiplomskiRadClient extends RestClient {
             throw new Exception("Greska!\n" + e.getMessage());
         }
     }
-    
-        public DiplomskiRadDTO odbrani(DiplomskiRadOdbraniDTO dto, String diplomskiRadId) throws Exception {
+
+    public DiplomskiRadDTO odbrani(DiplomskiRadOdbraniDTO dto, String diplomskiRadId) throws Exception {
         Response response = webTarget.path(getDomain() + "/" + diplomskiRadId + "/odbrani").request().put(Entity.json(dto));
+        try {
+            DiplomskiRadDTO dtoRet = (DiplomskiRadDTO) response.readEntity(getType());
+            return dtoRet;
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new Exception("Greska!\n" + e.getMessage());
+        }
+    }
+
+    public DiplomskiRadDTO promeniClana(ClanKaKlijentuDTO dto, String diplomskiRadId) throws Exception {
+        Response response = webTarget.path(getDomain() + "/" + diplomskiRadId + "/promeniclana").request().put(Entity.json(dto));
         try {
             DiplomskiRadDTO dtoRet = (DiplomskiRadDTO) response.readEntity(getType());
             return dtoRet;

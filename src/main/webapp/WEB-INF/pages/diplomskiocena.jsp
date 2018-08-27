@@ -33,7 +33,7 @@
                     </div>
                 </c:if>
                 <c:if test="${requestScope.successMessage != null}">
-                   <div class="alert alert-success alert-dismissible" role="alert" >
+                    <div class="alert alert-success alert-dismissible" role="alert" >
                         <strong>Uspešno!</strong> ${requestScope.successMessage}
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -41,8 +41,8 @@
                     </div>
                 </c:if>
                 <form action="/app/controller" method="POST">
-                    <input type="hidden" name="studentid" value="${requestScope.student.clanSistemaId}">
-                    <input type="number" name="ocena" min="6" max="10">
+                    <label>Ocena</label>
+                    <input type="number" class="form-control"  name="ocena" min="6" max="10">
 
                     <button type="submit" name="action" value="potvrdiocenu" class="btn btn-lg btn-block space">Potvrdi</button>
                 </form>

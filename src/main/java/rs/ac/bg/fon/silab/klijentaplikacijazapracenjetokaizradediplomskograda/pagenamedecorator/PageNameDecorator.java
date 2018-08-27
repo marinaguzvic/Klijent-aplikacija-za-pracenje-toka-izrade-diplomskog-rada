@@ -33,6 +33,7 @@ public class PageNameDecorator {
         view.put(IConstants.PRIJAVI_DIPLOMSKI_PAGE, IConstants.PRIJAVI_DIPLOMSKI_PAGE_NAME);
         view.put(IConstants.ODREDI_DATUM_ODBRANE_PAGE, IConstants.ODREDI_DATUM_ODBRANE_PAGE_NAME);
         view.put(IConstants.ODREDI_OCENU_PAGE,IConstants.ODREDI_KOMISIJU_PAGE_NAME);
+        view.put(IConstants.PROMENI_CLANA_PAGE, IConstants.PROMENI_CLANA_PAGE_NAME);
     }
 
     public static PageNameDecorator getInstance() {

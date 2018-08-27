@@ -33,8 +33,9 @@ public class PageResolver {
         view.put(IConstants.ODREDI_KOMISIJU_PAGE, IConstants.ODREDI_KOMISIJU_PAGE_PATH);
         view.put(IConstants.PRIJAVI_DIPLOMSKI_PAGE, IConstants.PRIJAVI_DIPLOMSKI_PAGE_PATH);
         view.put(IConstants.ODREDI_DATUM_ODBRANE_PAGE, IConstants.ODREDI_DATUM_ODBRANE_PAGE_PATH);
-        view.put(IConstants.ODREDI_OCENU_PAGE,IConstants.ODREDI_KOMISIJU_PAGE_PATH);
+        view.put(IConstants.ODREDI_OCENU_PAGE,IConstants.ODREDI_OCENU_PATH);
         view.put(IConstants.DIPLOMSKI_RAD_CONFIRMATION_PAGE,IConstants.DIPLOMSKI_RAD_CONFIRMATION_PAGE_PATH);
+        view.put(IConstants.PROMENI_CLANA_PAGE, IConstants.PROMENI_CLANA_PAGE_PATH);
     }
 
     public static PageResolver getInstance() {

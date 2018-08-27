@@ -25,7 +25,7 @@ public class PotvrdiOdbranuAction extends AbstractAction {
     @Override
       public boolean callToService(HttpServletRequest request, HttpServletResponse response) {
         try {
-            String id = request.getParameter(IConstants.DIPLOMSKI_ID);
+            String id = (String) request.getSession().getAttribute(IConstants.DIPLOMSKI_ID);
             DiplomskiRadOdbraniDTO diplomski = new DiplomskiRadOdbraniDTO(Integer.parseInt(request.getParameter("ocena")));
             client = new DiplomskiRadClient();
             DiplomskiRadDTO d = ((DiplomskiRadClient)client).odbrani(diplomski,id);

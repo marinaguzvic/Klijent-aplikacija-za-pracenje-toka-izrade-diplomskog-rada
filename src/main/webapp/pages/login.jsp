@@ -23,7 +23,7 @@
                 <jsp:include page="/WEB-INF/template/template.jsp"></jsp:include>
                     <form action="/app/controller" method="POST">
                         <c:if test="${requestScope.errorMessage != null}">
-                        <div class="alert alert-danger alert-dismissable fade show" role="alert">
+                        <div class="alert alert-danger alert-dismissible" role="alert">
                             <strong>Greška!</strong> ${requestScope.errorMessage}
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
