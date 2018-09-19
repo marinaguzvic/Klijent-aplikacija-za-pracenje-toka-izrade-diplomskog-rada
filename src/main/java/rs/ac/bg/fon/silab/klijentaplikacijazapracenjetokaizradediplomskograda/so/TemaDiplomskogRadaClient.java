@@ -31,14 +31,6 @@ public class TemaDiplomskogRadaClient extends RestClient{
         return new GenericType<List<TemaDiplomskogRadaDTO>>(){};
     }
     
-    public List<AbstractDTO> search(String nazivTeme) throws Exception{
-        try {
-            return (List<AbstractDTO>) webTarget.path(java.text.MessageFormat.format(getDomain() + "/search/{0}", new Object[]{nazivTeme})).request().get().readEntity(getCollectionType());
-        } catch (Exception e) {
-            throw new Exception("Greška prilikom čitanja sa servera");
-        }
-        
-    }
 
     public List<TemaDiplomskogRadaDTO> getFreeTemas() throws Exception {
         try {

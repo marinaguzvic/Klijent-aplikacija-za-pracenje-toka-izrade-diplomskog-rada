@@ -47,17 +47,18 @@
                     <button id="tog" onclick="$(function toggleEnabledDisabled(parameters) {
                                 if ($('.upd').prop('disabled') === true) {
                                     $('.upd').prop('disabled', false);
-                                    $('#tog').html('Omogući izmene');
+                                    $('#tog').html('Onemogući izmene');
                                 } else {
                                     $('.upd').prop('disabled', true);
-                                    $('#tog').html('Onemogući izmene');
+                                    $('#tog').html('Omogući izmene');
                                 }
                             })"  class="btn btn-lg btn-block space" type="button">Omogući izmene</button>
 
 
-                    <button type="submit" name="action" value="updatetema" class="btn btn-lg btn-block space upd">Potvrdi izmene</button>
-                    <button type="reset" class="btn btn-lg btn-block space">Poništi promene</button>
+                            <button type="submit" name="action" value="updatetema" class="btn btn-lg btn-block space upd" disabled onclick="$($('.upd').prop('disabled', true);$('#tog').html('Omogući izmene');)">Potvrdi izmene</button>
+                    <button type="reset" class="btn btn-lg btn-block space upd" disabled>Poništi promene</button>
                 </form>
+                    <jsp:include page="/WEB-INF/template/footer.jsp"></jsp:include>
             </div>
         </div>
         <script src="/app/resources/js/jquery.js" type="text/javascript"></script>

@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import rs.ac.bg.fon.silab.diplomskiraddtos.DiplomskiRadDTO;
+import rs.ac.bg.fon.silab.diplomskiraddtos.StudentDTO;
+import rs.ac.bg.fon.silab.klijentaplikacijazapracenjetokaizradediplomskograda.so.DiplomskiRadClient;
 import rs.ac.bg.fon.silab.klijentaplikacijazapracenjetokaizradediplomskograda.so.DokumentClient;
 import rs.ac.bg.fon.silab.klijentaplikacijazapracenjetokaizradediplomskograda.util.IConstants;
 
@@ -42,7 +44,10 @@ public class UploadAction extends AbstractAction {
             while ((read = filecontent.read(bytes)) != -1) {
                 out.write(bytes, 0, read);
             }
-            DiplomskiRadDTO diplomski = (DiplomskiRadDTO) ((DokumentClient) client).post(((DiplomskiRadDTO) request.getSession().getAttribute(IConstants.DIPLOMSKI_RAD_PAGE)).getDiplomskiRadId(), file);
+            ((DokumentClient) client).post(((DiplomskiRadDTO) request.getSession().getAttribute(IConstants.DIPLOMSKI_RAD)).getDiplomskiRadId(), file);
+            client = new DiplomskiRadClient();
+            DiplomskiRadDTO diplomski = (DiplomskiRadDTO) client.get(((StudentDTO)request.getSession().getAttribute(IConstants.NALOG)).getClanSistemaId() + "");
+            request.getSession().removeAttribute(IConstants.DIPLOMSKI_RAD);
             request.getSession().setAttribute(IConstants.DIPLOMSKI_RAD_PAGE, diplomski);
             request.setAttribute(IConstants.SUCCESS_MESSAGE, "Sistem je uspešno poslao dokument");
                     

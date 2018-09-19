@@ -65,11 +65,11 @@
                                                     $('.upd').prop('disabled', true);
                                                     $('#tog').html('Omogući izmene');
                                                 }
-                                            })"  class="btn btn-lg btn-block space" type="button">Omoguci izmene</button>
+                                            })"  class="btn btn-lg btn-block space" type="button">Omogući izmene</button>
 
 
-                                    <button type="submit" name="action" value="updatestudent" class="btn btn-lg btn-block space upd">Potvrdi izmene</button>
-                                    <button type="reset" class="btn btn-lg btn-block space">Poništi promene</button>
+                                            <button type="submit" name="action" value="updatestudent" class="btn btn-lg btn-block space upd" disabled onclick="$($('.upd').prop('disabled', true);$('#tog').html('Omogući izmene');)">Potvrdi izmene</button>
+                                            <button type="reset" class="btn btn-lg btn-block space upd" disabled>Poništi promene</button>
                                 </form>
                             </div>
                             <div role="tabpanel" class="tab-pane fade" id="diplomski">
@@ -95,7 +95,7 @@
                                     <c:forEach var="diplomskiProp" items="${requestScope.diplomskiRad.getNotNullProperties()}">
                                         <tr>
                                             <td>${diplomskiProp}</td>
-                                            <td>${requestScope.diplomskiRad.getPropertyByName(diplomskiProp)}</td>
+                                            <td>${requestScope.diplomskiRad.findPropertyByName(diplomskiProp)}</td>
                                         </tr>
                                     </c:forEach>
                                     <c:if test="${!(requestScope.diplomskiRad.getDokuments() == null) && !requestScope.diplomskiRad.getDokuments().isEmpty()}">
@@ -172,7 +172,7 @@
                     </div>
 
                 </div>
-
+                <jsp:include page="/WEB-INF/template/footer.jsp"></jsp:include>
             </div>
         </div>
         <script src="/app/resources/js/jquery.js" type="text/javascript"></script>

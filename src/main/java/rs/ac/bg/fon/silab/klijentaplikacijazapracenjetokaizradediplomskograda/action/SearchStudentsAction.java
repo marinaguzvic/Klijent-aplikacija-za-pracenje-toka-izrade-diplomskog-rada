@@ -41,6 +41,7 @@ public class SearchStudentsAction extends AbstractAction{
             
             
             List<StudentDTO> students = ((StudentClient)client).search(student);
+            request.setAttribute("studentsearchcriteria", student);
             request.setAttribute(IConstants.STUDENTS, students);
             request.setAttribute(IConstants.SUCCESS_MESSAGE, "Sistem je našao studente po zadatim vrednostima");
                     

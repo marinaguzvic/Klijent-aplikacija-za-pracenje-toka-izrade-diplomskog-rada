@@ -48,7 +48,7 @@
                             </h4>
                         </div>  
                     </div>
-                    <div id="collapse1" class="panel-collapse collapse in">
+                    <div id="collapse1" class="panel-collapse collapse">
                         <form method="POST" action="/app/controller">
                             <div class="container-fluid" >
                                 <div class="row panel" style="background-color: white;margin: 15px 0px;" >
@@ -104,9 +104,9 @@
 
                             <thead>
                                 <tr>
-                                    <c:forEach var="prop" items="${requestScope.diplomskiRads.get(0).getCrucialProperties()}">
+                                    <c:forEach var="p" items="${requestScope.diplomskiRads.get(0).findCrucialProperties()}">
                                         <th>
-                                            ${prop}
+                                            ${p}
                                         </th>
                                     </c:forEach>
 
@@ -115,9 +115,9 @@
                             <tbody>
                                 <c:forEach var="diplomski" items="${requestScope.diplomskiRads}">
                                     <tr onclick="window.location = '/app/controller?diplomskiid=${diplomski.getDiplomskiRadId()}&action=diplomskiviewnastavnik';">
-                                        <c:forEach var="prop" items="${diplomski.getProperties()}">
+                                        <c:forEach var="prop" items="${diplomski.findCrucialProperties()}">
                                             <td>
-                                                ${diplomski.getPropertyByName(prop)}
+                                                ${diplomski.findPropertyByName(prop)}
                                             </td>
                                         </c:forEach>
 
@@ -128,6 +128,7 @@
                         </table>
                     </c:otherwise>
                 </c:choose>
+                        <jsp:include page="/WEB-INF/template/footer.jsp"></jsp:include>
             </div>
 
         </div>

@@ -12,6 +12,7 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.Response;
 import rs.ac.bg.fon.silab.diplomskiraddtos.AbstractDTO;
+import rs.ac.bg.fon.silab.diplomskiraddtos.ISearchDTO;
 
 /**
  *
@@ -68,6 +69,26 @@ public abstract class RestClient {
             throw new Exception("Greska!\n" + e.getMessage());
         }
     
+    }
+    
+    public AbstractDTO delete(String id) throws Exception{
+        Response response = webTarget.path(java.text.MessageFormat.format(getDomain() + "/{0}", new Object[]{id})).request().delete();
+        try {
+            AbstractDTO dtoRet = (AbstractDTO) response.readEntity(getType());
+            return dtoRet;
+        } catch (Exception e) {
+            throw new Exception("Greska!\n" + e.getMessage());
+        }
+    }
+    
+        public List<AbstractDTO> search(ISearchDTO dto) throws Exception {
+        Response response = webTarget.path(getDomain() + "/search").request().post(Entity.json(dto));
+        try {
+            return (List<AbstractDTO>) response.readEntity(getCollectionType());
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new Exception("Greska!\n" + e.getMessage());
+        }
     }
     
     public abstract Class getType();

@@ -14,15 +14,17 @@
         <title>JSP Page</title>
 
         <link href="/app/resources/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+
         <link href="/app/resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="/app/resources/css/style.css" rel="stylesheet" type="text/css"/>
+
+        <link rel="stylesheet" type="text/css" href="/app/resources/css/style.css"/>
     </head>
     <body>
         <div class="bg">
             <div class="container content">
                 <jsp:include page="/WEB-INF/template/template.jsp"></jsp:include>
                     <form action="/app/controller" method="POST">
-                        <c:if test="${requestScope.errorMessage != null}">
+                    <c:if test="${requestScope.errorMessage != null}">
                         <div class="alert alert-danger alert-dismissible" role="alert">
                             <strong>Greška!</strong> ${requestScope.errorMessage}
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -41,6 +43,7 @@
                     <input type="hidden" name="action" value="login" />
                     <button type="submit" class="btn btn-lg btn-block space">Prijavi se</button>
                 </form>
+                <jsp:include page="/WEB-INF/template/footer.jsp"></jsp:include>
             </div>
         </div>
         <script src="/app/resources/js/bootstrap.min.js" type="text/javascript"></script>

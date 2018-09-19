@@ -51,6 +51,7 @@
 
                     <button type="reset" class="btn btn-lg btn-block space">Poništi promene</button>
                 </form>
+                    <jsp:include page="/WEB-INF/template/footer.jsp"></jsp:include>
             </div>
         </div>
         <script src="/app/resources/js/jquery.js" type="text/javascript"></script>

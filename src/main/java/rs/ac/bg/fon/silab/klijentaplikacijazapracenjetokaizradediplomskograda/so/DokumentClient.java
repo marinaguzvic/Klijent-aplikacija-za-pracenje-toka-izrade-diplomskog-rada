@@ -14,16 +14,12 @@ import com.sun.jersey.core.header.FormDataContentDisposition;
 import com.sun.jersey.multipart.FormDataMultiPart;
 import com.sun.jersey.multipart.MultiPart;
 import com.sun.jersey.multipart.file.FileDataBodyPart;
-import java.io.ByteArrayInputStream;
 import java.io.File;
-import java.io.InputStream;
-import javax.servlet.http.Part;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import rs.ac.bg.fon.silab.diplomskiraddtos.AbstractDTO;
+import rs.ac.bg.fon.silab.diplomskiraddtos.DokumentDownloadDTO;
 
 /**
  *
@@ -61,16 +57,27 @@ public class DokumentClient extends RestClient {
             throw new Exception("Greska!\n" + e.getMessage());
         }
     }
-
-    public byte[] get(Long diplomskiRadID, Long dokumentId) throws Exception {
-        try {
-            byte[] doc = webTarget.path(java.text.MessageFormat.format(getDomain(), new Object[]{diplomskiRadID})).request().accept(MediaType.APPLICATION_OCTET_STREAM).get().readEntity(byte[].class);
-            return doc;
+    
+    public DokumentDownloadDTO get(Long diplomskiRadId,Integer rb) throws Exception{
+         try {
+            return (DokumentDownloadDTO) webTarget.path("/diplomskirads/" + diplomskiRadId + "/dokuments/" + rb).request().get().readEntity(DokumentDownloadDTO.class);
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new Exception("Greska kod getovanja dokumenta");
+            throw new Exception("Greška prilikom čitanja sa servera");
         }
     }
+
+    public AbstractDTO delete(Long diplomskiRadId,Integer rb) throws Exception {
+        Response response = webTarget.path("/diplomskirads/" + diplomskiRadId + "/dokuments/" + rb).request().delete();
+        try {
+            AbstractDTO dtoRet = (AbstractDTO) response.readEntity(getType());
+            return dtoRet;
+        } catch (Exception e) {
+            throw new Exception("Greska!\n" + e.getMessage());
+        }
+    }
+    
+    
+
 
     @Override
     public GenericType getCollectionType() {

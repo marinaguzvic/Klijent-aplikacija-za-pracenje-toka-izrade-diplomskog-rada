@@ -5,11 +5,13 @@
  */
 package rs.ac.bg.fon.silab.klijentaplikacijazapracenjetokaizradediplomskograda.action;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import rs.ac.bg.fon.silab.diplomskiraddtos.ClanKaKlijentuDTO;
 import rs.ac.bg.fon.silab.diplomskiraddtos.DiplomskiRadDTO;
 import rs.ac.bg.fon.silab.diplomskiraddtos.NalogDTO;
 import rs.ac.bg.fon.silab.diplomskiraddtos.NastavnikDTO;
@@ -31,7 +33,13 @@ public class PromeniClanaAction extends AbstractAction{
             request.setAttribute("clans", diplomski.getClans());
             client = new NastavnikClient();
             List<NastavnikDTO> nastavniks = ((NastavnikClient)client).getNastavniksForKomisija();
-            request.setAttribute("nastavniks", nastavniks);
+            List<NastavnikDTO> n = new ArrayList<>();
+            for (NastavnikDTO nastavnik : nastavniks) {
+                if(!nastavnik.amongClanovi(diplomski.getClans())){
+                    n.add(nastavnik);
+                }
+            }
+            request.setAttribute("nastavniks", n);
             request.setAttribute("diplomskiid", diplomski.getDiplomskiRadId());
             request.setAttribute(IConstants.SUCCESS_MESSAGE, "Sistem je uspešno pronašao komisiju");
             return true;

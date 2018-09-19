@@ -12,14 +12,52 @@ body, html {
     height: 100%;
 }
 
+.push{
+    height: 70px;
+}
+::-webkit-scrollbar { 
+    width: 0px;
+    background: transparent;
+}
+
+.footer-color{
+    background-color: #d9d9d9;
+}
+
+.ftr{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left:0;  
+    margin:0;
+}
+
+.img-footer{
+    opacity: 1;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.image-container:hover .img-footer {
+    opacity: 0.3;
+}
+.footer-text{
+    background-color: #bfbfbf;
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+        
+}
 
 .bg {
-        background-image: url("/app/resources/images/background.jpg");
-        height: 100%;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-attachment: fixed;
+    background-image: url("/app/resources/images/background.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    padding-bottom: 0px;
+    margin-bottom: 0;
 
 }
 
@@ -28,6 +66,7 @@ body, html {
     height: 100%;
     overflow-y: scroll;
 }
+
 
 .naslov{
     font-weight: bold;
@@ -46,6 +85,11 @@ body, html {
     background-color:#99ffcc;
 
 }
+
+.komisija{
+     background-color:#99ffcc;
+}
+
 
 
 

@@ -34,12 +34,12 @@
                         <c:forEach var="diplomskiProp" items="${requestScope.diplomskiRad.getNotNullProperties()}">
                             <tr>
                                 <td>${diplomskiProp}</td>
-                                <td>${requestScope.diplomskiRad.getPropertyByName(diplomskiProp)}</td>
+                                <td>${requestScope.diplomskiRad.findPropertyByName(diplomskiProp)}</td>
                             </tr>
                         </c:forEach>
                     </tbody>
                 </table>
-
+<jsp:include page="/WEB-INF/template/footer.jsp"></jsp:include>
             </div>
         </div>
         <script src="/app/resources/js/jquery.js" type="text/javascript"></script>

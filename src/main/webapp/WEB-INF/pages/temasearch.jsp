@@ -42,13 +42,14 @@
                     <div class="space panel">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" style="text-decoration: none;">
                                     Pretraživanje
+                                    <span class="glyphicon glyphicon-search pull-right" aria-hidden="true"></span>
                                 </a>
                             </h4>
                         </div>  
                     </div>
-                    <div id="collapse1" class="panel-collapse collapse in">
+                    <div id="collapse1" class="panel-collapse collapse">
                         <form method="POST" action="/app/controller">
                             <div class="container-fluid" >
                                 <div class="row panel" style="background-color: white;margin: 15px 0px;" >
@@ -57,16 +58,26 @@
                                 <div class="row">
                                     <div class="col-sm-3 col-md-12" >
                                         <div class="form-check form-check-inline">
-                                            <label for="exampleFormControlInput1">Naziv</label>
-                                            <input type="text" class="form-control" name = "ime" id="exampleFormControlInput1" placeholder="Naziv">
+
+                                            <div class="col-md-6">
+                                                <label for="exampleFormControlInput1">Naziv</label>
+                                                <input type="text" class="form-control" name = "naziv" id="exampleFormControlInput1" placeholder="Naziv" value="${requestScope.nazivTeme == null?'':requestScope.nazivTeme}">
+                                            </div>
+                                            <div>
+                                                <label for="exampleFormControlInput2">Diplomski rad</label><br>
+                                                <label class="radio-inline"><input type="radio" name="diplomski" checked value="svi" ${requestScope.diplomski == null? 'checked':(requestScope.diplomski.equals('svi')?'checked':'')}>Sve teme</label>
+                                                <label class="radio-inline"><input type="radio" name="diplomski" value="zauzete" ${requestScope.diplomski == null? '':(requestScope.diplomski.equals('zauzete')?'checked':'')}>Zauzete teme</label>
+                                                <label class="radio-inline"><input type="radio" name="diplomski" value="slobodne" ${requestScope.diplomski == null? '':(requestScope.diplomski.equals('slobodne')?'checked':'')}>Slobodne teme</label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <button type="submit" name="action" value="temasearch" class="btn btn-lg btn-block space">Pronađi</button>
                     </div>
 
                 </div>
-                <button type="submit" name="action" value="temasearch" class="btn btn-lg btn-block space">Pronađi</button>
+
                 </form>
                 <c:choose>
                     <c:when test="${requestScope.teme == null || requestScope.teme.isEmpty()}">
@@ -83,7 +94,7 @@
 
                             <thead>
                                 <tr>
-                                    <c:forEach var="prop" items="${requestScope.teme.get(0).getCrucialProperties()}">
+                                    <c:forEach var="prop" items="${requestScope.teme.get(0).findCrucialProperties()}">
                                         <th>
                                             ${prop}
                                         </th>
@@ -94,9 +105,9 @@
                             <tbody>
                                 <c:forEach var="tema" items="${requestScope.teme}">
                                     <tr onclick="window.location = '/app/controller?temaid=${tema.temaId}&action=viewtema';">
-                                        <c:forEach var="prop" items="${tema.getCrucialProperties()}">
+                                        <c:forEach var="prop" items="${tema.findCrucialProperties()}">
                                             <td>
-                                                ${tema.getPropertyByName(prop)}
+                                                ${tema.findPropertyByName(prop)}
                                             </td>
                                         </c:forEach>
 
@@ -107,6 +118,7 @@
                         </table>
                     </c:otherwise>
                 </c:choose>
+                <jsp:include page="/WEB-INF/template/footer.jsp"></jsp:include>
             </div>
         </div>
         <script src="/app/resources/js/jquery.js" type="text/javascript"></script>

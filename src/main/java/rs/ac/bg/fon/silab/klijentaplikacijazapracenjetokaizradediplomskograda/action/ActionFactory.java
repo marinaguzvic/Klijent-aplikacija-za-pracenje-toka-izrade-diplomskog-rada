@@ -51,6 +51,7 @@ public class ActionFactory {
         if(action.equalsIgnoreCase(IConstants.POTVRDI_ODBRANU_ACTION))command = new PotvrdiOdbranuAction();
         if(action.equalsIgnoreCase(IConstants.PROMENI_CLANA_ACTION))command = new PromeniClanaAction();
         if(action.equalsIgnoreCase(IConstants.POTVRDI_PROMENU_CLANA_ACTION))command = new PotvrdiPromenuClanaAction();
+        if(action.equalsIgnoreCase(IConstants.DELETE_ACTION))command = new DeleteDokumentAction();
         return command;
     }
 }

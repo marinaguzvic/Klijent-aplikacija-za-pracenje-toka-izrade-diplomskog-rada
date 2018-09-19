@@ -24,11 +24,11 @@ public class PredajDiplomskiRadAction extends AbstractAction{
             client = new DiplomskiRadClient();
             DiplomskiRadDTO d = ((DiplomskiRadClient)client).predaj(id);
             request.setAttribute("diplomskiRad", d);
-            request.setAttribute(IConstants.SUCCESS_MESSAGE, "Sistem je uspešno prijavio odobrio temu diplomskog rada");
+            request.setAttribute(IConstants.SUCCESS_MESSAGE, "Sistem je uspešno evidentirao predaju diplomskog rada");
             return true;
         } catch (Exception ex) {
             ex.printStackTrace();
-            request.setAttribute(IConstants.ERROR_MESSAGE, "Sistem ne može da odobri temu diplomskog rada");
+            request.setAttribute(IConstants.ERROR_MESSAGE, "Sistem ne može da evidentira predaju diplomskog rada");
             return false;
         }
     }

@@ -77,11 +77,11 @@
                     </c:if>
                     <button type="submit" name="action" value="potvrdikomisiju" class="btn btn-lg btn-block space">Potvrdi promene</button>
                 </form>
+                    <jsp:include page="/WEB-INF/template/footer.jsp"></jsp:include>
             </div>
         </div>
         <script src="/app/resources/js/jquery.js" type="text/javascript"></script>
         <script src="/app/resources/js/bootstrap.min.js" type="text/javascript"></script>
-
     </body>
 </html>
 

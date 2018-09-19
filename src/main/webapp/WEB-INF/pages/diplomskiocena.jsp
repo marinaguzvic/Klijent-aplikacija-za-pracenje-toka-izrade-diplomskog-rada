@@ -46,6 +46,7 @@
 
                     <button type="submit" name="action" value="potvrdiocenu" class="btn btn-lg btn-block space">Potvrdi</button>
                 </form>
+                <jsp:include page="/WEB-INF/template/footer.jsp"></jsp:include>
             </div>
         </div>
         <script src="/app/resources/js/jquery.js" type="text/javascript"></script>

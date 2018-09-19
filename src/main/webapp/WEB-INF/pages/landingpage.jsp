@@ -32,25 +32,28 @@
                     </div>
                 </c:if>
                 <c:if test="${requestScope.successMessage != null}">
-                   <div class="alert alert-success alert-dismissible" role="alert" >
+                    <div class="alert alert-success alert-dismissible" role="alert" >
                         <strong>Uspešno!</strong> ${requestScope.successMessage}
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                 </c:if>
-                <table class="table table-striped">
+                <div>
+                    <table class="table table-striped">
 
-                    <tbody>
-                        <c:forEach var="property" items="${sessionScope.nalog.getProperties()}">
-                            <tr>
-                                <td>${property}</td>
-                                <td>${sessionScope.nalog.getPropertyByName(property)}</td>
-                            </tr>
-                        </c:forEach>
+                        <tbody>
+                            <c:forEach var="property" items="${sessionScope.nalog.findProperties()}">
+                                <tr>
+                                    <td>${property}</td>
+                                    <td>${sessionScope.nalog.findPropertyByName(property)}</td>
+                                </tr>
+                            </c:forEach>
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
+                <jsp:include page="/WEB-INF/template/footer.jsp"></jsp:include>
             </div>
         </div>
         <script src="/app/resources/js/jquery.js" type="text/javascript"></script>

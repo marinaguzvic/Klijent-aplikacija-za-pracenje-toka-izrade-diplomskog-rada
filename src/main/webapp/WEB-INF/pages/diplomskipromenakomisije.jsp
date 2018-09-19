@@ -58,31 +58,35 @@
                     </thead>
                     <tbody>
                         <c:forEach var="clan" items="${requestScope.clans}">
-                            <tr>
                         <form action="/app/controller" method="POST">
-                            <input type="hidden" name="clanid" value="${clan.clanKomisijeRb}">
-                            <input type="hidden" name="diplomskiid" value="${requestScope.diplomskiid}">
-                            <td>${clan.nastavnikIdFk.ime.concat(' ').concat(clan.nastavnikIdFk.prezime)}</td>
-                            <td>${clan.ulogaClanaKomisije}</td>
-                            <td><select class="selectpicker form-control" name="nastavnik" data-show-subtext="true" data-live-search="true" >
-                                    <c:forEach var="nastavnik" items="${requestScope.nastavniks}">
-                                        <option data-subtext="${nastavnik.katedra}" value="${nastavnik.clanSistemaId}" ${(nastavnik.amongClanovi(requestScope.clans))?'disabled':''}>${nastavnik.ime.concat(' ').concat(nastavnik.prezime)}</option>
-                                    </c:forEach>
-                                </select>
-                            </td>
-                            <td>
-                                <button type="submit" name="action" value="potvrdipromenuclana" class="btn btn-smd space">Promeni člana</button>
-                            </td>
+                            <input type="hidden" name="clanid" value="${clan.clanKomisijeRb}"/>
+                            <input type="hidden" name="diplomskiid" value="${requestScope.diplomskiid}"/>
+                            <tr>
+
+
+                                <td>${clan.nastavnikIdFk.ime.concat(' ').concat(clan.nastavnikIdFk.prezime)}</td>
+                                <td>${clan.ulogaClanaKomisije}</td>
+                                <td>
+                                    <select class="form-control" name="nastavnik" data-show-subtext="true" data-live-search="true">
+                                        <c:forEach var="nastavnik" items="${requestScope.nastavniks}">
+                                            <option data-subtext="${nastavnik.katedra}" value="${nastavnik.clanSistemaId}">${nastavnik.ime.concat(' ').concat(nastavnik.prezime)}</option>
+                                        </c:forEach>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button type="submit" name="action" value="potvrdipromenuclana" class="btn btn-smd komisija">Promeni člana</button>
+                                </td>
+
+
+
+
+
+                            </tr>
                         </form>
-
-
-
-
-                        </tr>
                     </c:forEach>
                     </tbody>
                 </table>
-
+                <jsp:include page="/WEB-INF/template/footer.jsp"></jsp:include>
             </div>
         </div>
         <script src="/app/resources/js/jquery.js" type="text/javascript"></script>

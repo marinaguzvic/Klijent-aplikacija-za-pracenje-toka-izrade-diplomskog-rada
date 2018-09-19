@@ -17,6 +17,7 @@ public interface IConstants {
 
     public static final String LOGIN_PAGE = "login";
     public static final String LANDING_PAGE = "landingpage";
+    public static final String DIPLOMSKI_RAD = "diplomskiRad";
     public static final String DIPLOMSKI_RAD_PAGE = "diplomskiRad";
     public static final String DIPLOMSKI_RAD_ACTION = "diplomskiview";
     public static final String DIPLOMSKI_RAD_NASTAVNIK_ACTION = "diplomskiviewall";
@@ -108,4 +109,5 @@ public interface IConstants {
     public static final String PROMENI_CLANA_PAGE_NAME = "Promena člana komisije";
     
     public static final String POTVRDI_PROMENU_CLANA_ACTION = "potvrdipromenuclana";
+    public static final String DELETE_ACTION = "delete";
 }
